@@ -26,6 +26,7 @@ public class Utilidades {
 	 * Notable para notas comprendidas entre 6,5 y menor que 8,5.
 	 * Sobresaliente para notas comprendidas entre 8,5 y menor que 10.
 	 * Matrícula para nota = 10.
+	 * @throws ArithmeticException cuando la nota no está comprendida entre 0 y 10.
 	 */
 	public String devuelveNota(double nota) {
 		String descripcion = "Matrícula";

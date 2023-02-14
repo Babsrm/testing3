@@ -49,20 +49,18 @@ class UtilidadesTest {
 
 	@Test
 	void testDevuelveMenor() {
-		int vector [] = {1,2,3,4,5};
+		int vector [] = {-14,2,18,45,-50};
 		//aunque se le deba pasar como parámetro un vector a la función, no significa que después tenga que hacer el equals con el array. esta función me devuelve un double, por lo que simplemente tengo que hacer un assertequals del resultado esperado
-		assertEquals(1, utils.devuelveMenor(vector), "Error en el test: el resultado debería de haber sido 1");
+		assertEquals(-50, utils.devuelveMenor(vector), "Error en el test: el resultado debería de haber sido -50");
 	}
 
 	@Test
 	void testBurbuja() {
 		int original [] = {8,-4,16,2,-8};
 		int ordenado [] = {-8,-4,2,8,16};
-		int ordenadoMal [] = {-4,-8,2,16,8};
 		utils.burbuja(original);
 		assertArrayEquals(original, ordenado, "Vector no ordenado correctamente.");
-	
-//		assertArrayEquals(original, ordenadoMal, "Vector no ordenado correctamente.");
+		
 		
 	}
 
