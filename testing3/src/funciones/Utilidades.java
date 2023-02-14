@@ -47,15 +47,19 @@ public class Utilidades {
 		return descripcion;
 	}
 	/**
-	 * Procedimiento para el cálculo del salario con horas extras. Se han de indicar el número de horas trabajadas, el precio de las horas normales y el precio de las horas extra.
+	 * Procedimiento para el cálculo del salario con horas extras. Se han de indicar el número de horas trabajadas, el precio de las horas normales (hasta {@see HORASJORNADA}), y el precio de las horas extra.
 	 * @param numHoras int Número de horas trabajadas
 	 * @param precioHoras double Precio de las horas normales
 	 * @param precioExtras double Precio de las horas extras
-	 * @return double Salario
+	 * @return double Salario total.
+	 * @throws ArithmeticException cuando los parámetros son igual o menor que 0.
 	 */
 	public double calculaSalario(int numHoras, double precioHoras, double precioExtras) {
 		int extras=0;
 		int horas=numHoras;
+		if (numHoras<=0 || precioHoras<=0 || precioExtras<=0) {
+			throw new ArithmeticException();
+		}
 		if (numHoras>HORASJORNADA) {
 			extras = numHoras-HORASJORNADA;
 			horas = HORASJORNADA;
@@ -79,7 +83,7 @@ public class Utilidades {
 		return cuenta;
 	}
 	/**
-	 * Procedimiento que, dado un array (vector), nos indica cuál es el número de menor valor en él.
+	 * Procedimiento que, dado un array (vector), nos indica cuál es el número de menor valor en él. Se usa el algoritmo de la burbuja
 	 * @param v int Vector de números enteros.
 	 * @return int Número de menor valor.
 	 */
@@ -97,7 +101,7 @@ public class Utilidades {
 	 * @param v int Vector de números enteros.
 	 * @return vector int del mismo tamaño que el vector dado, con sus elementos ordenados de meonr a mayor.
 	 */
-	public int [] burbuja(int[] v)
+	public int [] algoritmoBurbuja(int[] v)
     {
       int auxiliar;
       int[] ordenado;
